@@ -1,9 +1,9 @@
 const CryptoJS = require('crypto-js');
 
-const encrypt = (data, secret) => {
+const encrypt = (data, key) => {
     let encrypted;
     try {
-        const encryptSecretKey = secret;
+        const encryptSecretKey = key;
         encrypted = CryptoJS.AES.encrypt(data, encryptSecretKey).toString();
         let b64 = CryptoJS.enc.Base64.parse(encrypted);
         encrypted = b64.toString(CryptoJS.enc.Hex);
@@ -13,33 +13,33 @@ const encrypt = (data, secret) => {
     return encrypted;
 };
 
-const decrypt = (encryptedData, secret) => {
-    const encryptSecretKey = secret;
-    let data;
+const decrypt = (data, key) => {
+    const encryptSecretKey = key;
+    let decryptedData;
     try {
-        let b64 = CryptoJS.enc.Hex.parse(encryptedData);
+        let b64 = CryptoJS.enc.Hex.parse(data);
         let bytes = b64.toString(CryptoJS.enc.Base64);
-        data = CryptoJS.AES.decrypt(bytes, encryptSecretKey);
-        data = data.toString(CryptoJS.enc.Utf8);
+        decryptedData = CryptoJS.AES.decrypt(bytes, encryptSecretKey);
+        decryptedData = decryptedData.toString(CryptoJS.enc.Utf8);
     } catch (e) {
         console.log('Error decrypting data: ' + e);
     }
-    return data;
+    return decryptedData;
 };
 
-const send = async (content, secret, output) => {
+const send = async (data, key, output) => {
     if (output) {
-        const resp = await encrypt(JSON.stringify(content), secret);
+        const resp = await encrypt(JSON.stringify(data), key);
         return { response: resp };
     }
-    return content;
+    return data;
 };
-const receive = async (content, secret, output) => {
+const receive = async (data, key, output) => {
     if (output) {
-        const resp = await decrypt(content.response, secret);
+        const resp = await decrypt(data.response, key);
         return JSON.parse(resp);
     }
-    return content;
+    return data;
 };
 
 // /**

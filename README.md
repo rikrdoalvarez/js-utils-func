@@ -35,11 +35,11 @@ Below you will find the features enabled in this package
 
 The console feature allow you to set a colored output printed in the terminal and when should be printed or not
 
--   **console.log(show, text):** The show boolean value indicates if the log is printed in the terminal in color white
--   **console.error(show, text):** The show boolean value indicates if the error is printed in the terminal in color red
--   **console.warn(show, text):** The show boolean value indicates if the warn is printed in the terminal in color yellow
--   **console.info(show, text):** The show boolean value indicates if the info is printed in the terminal in color blue
--   **console.table(show, text):** The show boolean value indicates if the log is printed in the terminal
+-   **console.log(text, show):** The show boolean value indicates if the log is printed in the terminal in color white
+-   **console.error(text, show):** The show boolean value indicates if the error is printed in the terminal in color red
+-   **console.warn(text, show):** The show boolean value indicates if the warn is printed in the terminal in color yellow
+-   **console.info(text, show):** The show boolean value indicates if the info is printed in the terminal in color blue
+-   **console.table(text, show):** The show boolean value indicates if the log is printed in the terminal
 
 ### Crypto
 
