@@ -16,6 +16,8 @@ This package contains a Javascript utilities functions to help developers to sta
     -   [Logger](#Logger)
         -   [Log](#Log)
         -   [Console](#Console)
+    -   [Date](#Date)
+        -   [DateFormat](#DateFormat)
 -   [Release notes](#Release)
     <!-- -   [app.js](#appjs) -->
 
@@ -43,8 +45,10 @@ In this package you will find the following features:
 
 General features to encrypt/decrypt your data, based on [crypto-js](https://www.npmjs.com/package/crypto-js) package
 
-> -   **encrypt(data, algorithm, key):** encrypt the data with the given algorithm and key
-> -   **decrypt(data, algorithm, key):** decrypt the data with the given algorithm and key
+> -   **encrypt(data, algorithm, key):** encrypt the data with the given algorithm and key. Encoding Base64
+> -   **decrypt(data, algorithm, key):** decrypt the data with the given algorithm and key. Encoding Base64
+> -   **encrypt2(data, algorithm, key):** encrypt the data with the given algorithm and key. Encoding Hex
+> -   **decrypt2(data, algorithm, key):** decrypt the data with the given algorithm and key. Encoding Hex
 
 #### **Crypto**
 
@@ -79,6 +83,14 @@ The console feature allow you to set a colored output printed in the terminal an
 > -   **console.info(text, show):** The show boolean value indicates if the info is printed in the terminal in color blue
 > -   **console.table(text, show):** The show boolean value indicates if the log is printed in the terminal
 
+### **Date**
+
+#### **DateFormat**
+
+Fomat date or date string to the following string formats DDMMYYYY, YYYYMMDD and HHMM
+
+> -   **format(date, format):** Convert to date string in one of the following valid formats: DDMMYYYY, YYYYMMDD or HHMM
+
 ## Release notes
 
 ---
@@ -96,3 +108,4 @@ New features:
 
 -   Encrypto
 -   Log
+-   DateFormat
